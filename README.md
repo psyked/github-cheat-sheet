@@ -1,9 +1,9 @@
-# GitHub Cheat Sheet
+# GitHub Cheat Sheet [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 A collection of cool hidden and not so hidden features of Git and GitHub. This cheat sheet was inspired by [Zach Holman](https://github.com/holman)'s [Git and GitHub Secrets](http://www.confreaks.com/videos/1229-aloharuby2012-git-and-github-secrets) talk at Aloha Ruby Conference 2012 ([slides](https://speakerdeck.com/holman/git-and-github-secrets)) and his [More Git and GitHub Secrets](https://vimeo.com/72955426) talk at WDCNZ 2013 ([slides](https://speakerdeck.com/holman/more-git-and-github-secrets)).
 
 *Shortlink: [`http://git.io/sheet`](http://git.io/sheet)*
 
-*Read this in other languages: [English](README.md), [한국어](README.ko.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md).*
+*Read this in other languages: [English](README.md), [한국어](README.ko.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md), [正體中文](README.zh-tw.md).*
 
 ## Table of Contents
  - [GitHub](#github)
@@ -11,21 +11,25 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
   - [Adjust Tab Space](#adjust-tab-space)
   - [Commit History by Author](#commit-history-by-author)
   - [Cloning a Repository](#cloning-a-repository)
-  - [Compare all Branches to Another Branch](#compare-all-branches-to-another-branch)
-  - [Comparing Branches](#comparing-branches)
-  - [Compare Branches across Forked Repositories](#compare-branches-across-forked-repositories)
+  - [Branch](#branch)
+    - [Compare all Branches to Another Branch](#compare-all-branches-to-another-branch)
+    - [Comparing Branches](#comparing-branches)
+    - [Compare Branches across Forked Repositories](#compare-branches-across-forked-repositories)
   - [Gists](#gists)
   - [Git.io](#gitio)
   - [Keyboard Shortcuts](#keyboard-shortcuts)
   - [Line Highlighting in Repositories](#line-highlighting-in-repositories)
   - [Closing Issues via Commit Messages](#closing-issues-via-commit-messages)
   - [Cross-Link Issues](#cross-link-issues)
+  - [Locking Conversations](#locking-conversations)
   - [CI Status on Pull Requests](#ci-status-on-pull-requests)
+  - [Filters](#filters)
   - [Syntax Highlighting in Markdown Files](#syntax-highlighting-in-markdown-files)
   - [Emojis](#emojis)
   - [Images/GIFs](#imagesgifs)
     - [Embedding Images in GitHub Wiki](#embedding-images-in-github-wiki)
   - [Quick Quoting](#quick-quoting)
+  - [Pasting Clipboard Image to Comments](#pasting-clipboard-image-to-comments)
   - [Quick Licensing](#quick-licensing)
   - [Task Lists](#task-lists)
     - [Task Lists in Markdown Documents](#task-lists-in-markdown-documents)
@@ -33,26 +37,32 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
   - [Metadata and Plugin Support for GitHub Pages](#metadata-and-plugin-support-for-github-pages)
   - [Viewing YAML Metadata in your Documents](#viewing-yaml-metadata-in-your-documents)
   - [Rendering Tabular Data](#rendering-tabular-data)
+  - [Rendering PDF](#rendering-pdf)
+  - [Revert a Pull Request](#revert-a-pull-request)
   - [Diffs](#diffs)
-    - [Rendered prose Diffs](#rendered-prose-diffs)
+    - [Rendered Prose Diffs](#rendered-prose-diffs)
     - [Diffable Maps](#diffable-maps)
     - [Expanding Context in Diffs](#expanding-context-in-diffs)
     - [Diff or Patch of Pull Request](#diff-or-patch-of-pull-request)
     - [Rendering and diffing images](#rendering-and-diffing-images)
   - [Hub](#hub)
-  - [Decreasing Contributor Friction](#decreasing-contributor-friction)
   - [Contributing Guidelines](#contributing-guidelines)
+  - [Octicons](#octicons)
   - [GitHub Resources](#github-resources)
     - [GitHub Talks](#github-talks)
  - [Git](#git)
+  - [Remove All Deleted Files from the Working Tree](#remove-all-deleted-files-from-the-working-tree)
   - [Previous Branch](#previous-branch)
   - [Stripspace](#stripspace)
+  - [SSH keys](#ssh-keys)
   - [Checking out Pull Requests](#checking-out-pull-requests)
-  - [Empty Commits :trollface:](#empty-commits-trollface)
+  - [Empty Commits](#empty-commits)
   - [Styled Git Status](#styled-git-status)
   - [Styled Git Log](#styled-git-log)
   - [Git Query](#git-query)
+  - [Git Grep](#git-grep)
   - [Merged Branches](#merged-branches)
+  - [Fixup and Autosquash](#fixup-and-autosquash)
   - [Web Server for Browsing Local Repositories](#web-server-for-browsing-local-repositories)
   - [Git Configurations](#git-configurations)
     - [Aliases](#aliases)
@@ -70,24 +80,24 @@ Adding `?w=1` to any diff URL will remove any changes only in whitespace, enabli
 [*Read more about GitHub secrets.*](https://github.com/blog/967-github-secrets)
 
 ### Adjust Tab Space
-Adding `?ts=4` to a diff or file URL will display tab characters as 4 spaces wide instead of the default 8. The number after `ts` can be adjusted to suit your preference. This does not work on Gists, or raw file views.
+Adding `?ts=4` to a diff or file URL will display tab characters as 4 spaces wide instead of the default 8. The number after `ts` can be adjusted to suit your preference. This does not work on Gists, or raw file views, but a [Chrome](https://chrome.google.com/webstore/detail/github-tab-size/ofjbgncegkdemndciafljngjbdpfmbkn) or [Opera  extension](https://addons.opera.com/en/extensions/details/github-tab-size/) can automate this.
 
-Here is a Go source file [before](https://github.com/pengwynn/flint/blob/master/flint/flint.go) adding `?ts=4`:
+Here is a Go source file before adding `?ts=4`:
 
 ![Before, tab space example](http://i.imgur.com/GIT1Fr0.png)
 
-...and this is [after](https://github.com/pengwynn/flint/blob/master/flint/flint.go?ts=4) adding `?ts=4`:
+...and this is after adding `?ts=4`:
 
 ![After, tab space example](http://i.imgur.com/70FL4H9.png)
 
 ### Commit History by Author
-To view all commits on a repo by author add `?author=username` to the URL.
+To view all commits on a repo by author add `?author={user}` to the URL.
 
 ```
 https://github.com/rails/rails/commits/master?author=dhh
 ```
 
-![DHH commit history](http://i.imgur.com/mDWwuaY.png)
+![DHH commit history](http://i.imgur.com/S7AE29b.png)
 
 [*Read more about the differences between commits views.*](https://help.github.com/articles/differences-between-commit-views)
 
@@ -100,7 +110,8 @@ $ git clone https://github.com/tiimgreen/github-cheat-sheet
 
 [*Read more about the Git `clone` command.*](http://git-scm.com/docs/git-clone)
 
-### Compare all Branches to Another Branch
+###Branch
+#### Compare all Branches to Another Branch
 
 If you go to the repo's [Branches](https://github.com/tiimgreen/github-cheat-sheet/branches) page, next to the Commits button:
 
@@ -112,27 +123,13 @@ https://github.com/{user}/{repo}/branches
 
 From here you can access the compare page or delete a branch with a click of a button.
 
-![Compare branches not merged into master in jquery/jquery repo - https://github.com/jquery/jquery/branches](http://i.imgur.com/gKWPe8a.png)
+![Compare branches not merged into master in rails/rails repo - https://github.com/rails/rails/branches](http://i.imgur.com/0FEe30z.png)
 
-However, often you need to compare branches to a branch other than `master` (e.g. `development`). To do this, append the URL with the name of the branch like so:
-
-```
-https://github.com/{user}/{repo}/branches/{branch}
-```
-
-![Compare branches not merged into `1.x-master` in jquery/jquery repo - https://github.com/jquery/jquery/branches/1.x-master](http://i.imgur.com/jpc6Urb.png)
-
-To see the merged branches, append `?merged=1` to the URL.
-
-![Compare branches merged in to `1.x-master` in jquery/jquery repo - https://github.com/jquery/jquery/branches/1.x-master?merged=1](http://i.imgur.com/KmYyCVh.png)
-
-This view allows you to delete branches easily from the page, without using the command-line.
-
-### Comparing Branches
+#### Comparing Branches
 To use GitHub to compare branches, change the URL to look like this:
 
 ```
-https://github.com/user/repo/compare/{range}
+https://github.com/{user}/{repo}/compare/{range}
 ```
 
 Where `{range} = master...4-1-stable`
@@ -143,7 +140,7 @@ For example:
 https://github.com/rails/rails/compare/master...4-1-stable
 ```
 
-![Rails branch compare example](http://i.imgur.com/0Z52X5Y.png)
+![Rails branch compare example](http://i.imgur.com/tIRCOsK.png)
 
 `{range}` can be changed to things like:
 
@@ -152,19 +149,24 @@ https://github.com/rails/rails/compare/master@{1.day.ago}...master
 https://github.com/rails/rails/compare/master@{2014-10-04}...master
 ```
 
-*Dates are in the format `YYYY-DD-MM`*
+*Dates are in the format `YYYY-MM-DD`*
 
 ![Another compare example](http://i.imgur.com/5dtzESz.png)
 
-...which allows you to see the difference on the master branch up a set time ago or a specified date.
+Branches can also be compared in `diff` and `patch` views:
+
+```
+https://github.com/rails/rails/compare/master...4-1-stable.diff
+https://github.com/rails/rails/compare/master...4-1-stable.patch
+```
 
 [*Read more about comparing commits across time.*](https://help.github.com/articles/comparing-commits-across-time)
 
-### Compare Branches across Forked Repositories
+#### Compare Branches across Forked Repositories
 To use GitHub to compare branches across forked repositories, change the URL to look like this:
 
 ```
-https://github.com/user/repo/compare/{foreign-user}:{branch}...{own-branch}
+https://github.com/{user}/{repo}/compare/{foreign-user}:{branch}...{own-branch}
 ```
 
 For example:
@@ -182,15 +184,25 @@ https://github.com/rails/rails/compare/byroot:master...master
 
 Add `.pibb` to the end of any Gist URL ([like this](https://gist.github.com/tiimgreen/10545817.pibb)) in order to get the *HTML only* version suitable for embedding in any other site.
 
-Gists can be treated as a full repository so they can be cloned like any other:
+Gists can be treated as a repository so they can be cloned like any other:
 
 ```bash
 $ git clone https://gist.github.com/tiimgreen/10545817
 ```
 
-![Gists](http://i.imgur.com/dULZXXo.png)
+![Gists](http://i.imgur.com/BcFzabp.png)
 
-[*Read more about creating gists.*](https://help.github.com/articles/creating-gists)
+This means you also can modify and push updates to Gists:
+
+```bash
+$ git commit
+$ git push
+Username for 'https://gist.github.com':
+Password for 'https://tiimgreen@gist.github.com':
+```
+
+However, Gists do not support directories. All files need to be added to the repository root.
+[*Read more about creating Gists.*](https://help.github.com/articles/creating-gists)
 
 ### Git.io
 [Git.io](http://git.io) is a simple URL shortener for GitHub.
@@ -216,7 +228,7 @@ When on a repository page, keyboard shortcuts allow you to navigate easily.
 
  - Pressing `t` will bring up a file explorer.
  - Pressing `w` will bring up the branch selector.
- - Pressing `s` will select the Command Bar.
+ - Pressing `s` will focus the search field for the current repository. Pressing Backspace to delete the “This repository” pill changes the field to search all of GitHub.
  - Pressing `l` will edit labels on existing Issues.
  - Pressing `y` **when looking at a file** (e.g. `https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md`) will change your URL to one which, in effect, freezes the page you are looking at. If this code changes, you will still be able to see what you saw at that current time.
 
@@ -224,7 +236,7 @@ To see all of the shortcuts for the current page press `?`:
 
 ![Keyboard shortcuts](http://i.imgur.com/y5ZfNEm.png)
 
-[*Read more about using the Command Bar.*](https://help.github.com/articles/using-the-command-bar)
+[Read more about search syntax you can use.](https://help.github.com/articles/search-syntax/)
 
 ### Line Highlighting in Repositories
 Either adding `#L52` to the end of a code file URL or simply clicking the line number will highlight that line number.
@@ -251,11 +263,23 @@ This closes the issue and references the closing commit.
 [*Read more about closing Issues via commit messages.*](https://help.github.com/articles/closing-issues-via-commit-messages)
 
 ### Cross-Link Issues
-If you want to link to another issue in the same repository, simple type hash `#` then the issue number, it will be auto-linked.
+If you want to link to another issue in the same repository, simply type hash `#` then the issue number, and it will be auto-linked.
 
-To link to an issue in another repository, `user_name/repo_name#ISSUE_NUMBER` e.g. `tiimgreen/toc#12`.
+To link to an issue in another repository, `{user}/{repo}#ISSUE_NUMBER` e.g. `tiimgreen/toc#12`.
 
 ![Cross-Link Issues](https://camo.githubusercontent.com/447e39ab8d96b553cadc8d31799100190df230a8/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f626c6f672f323031312f736563726574732f7265666572656e6365732e706e67)
+
+### Locking Conversations
+Pull Requests and Issues can now be locked by owners or collaborators of the repo.
+
+![Lock conversation](https://cloud.githubusercontent.com/assets/2723/3221693/bf54dd44-f00d-11e3-8eb6-bb51e825bc2c.png)
+
+This means that users who are not collaborators on the project will no longer be able to comment.
+
+![Comments locked](https://cloud.githubusercontent.com/assets/2723/3221775/d6e513b0-f00e-11e3-9721-2131cb37c906.png)
+
+[*Read more about locking conversations.*](https://github.com/blog/1847-locking-conversations)
+
 
 ### CI Status on Pull Requests
 If set up correctly, every time you receive a Pull Request, [Travis CI](https://travis-ci.org/) will build that Pull Request just like it would every time you make a new commit. Read more about how to [get started with Travis CI](http://docs.travis-ci.com/user/getting-started/).
@@ -263,6 +287,37 @@ If set up correctly, every time you receive a Pull Request, [Travis CI](https://
 [![Travis CI status](https://cloud.githubusercontent.com/assets/1687642/2700187/3a88838c-c410-11e3-9a46-e65e2a0458cd.png)](https://github.com/octokit/octokit.rb/pull/452)
 
 [*Read more about the commit status API.*](https://github.com/blog/1227-commit-status-api)
+
+### Filters
+
+Both issues and pull requests allow filtering in the user interface.
+
+For the Rails repo: https://github.com/rails/rails/issues, the following filter is built by selecting the label "activerecord":
+
+`is:issue label:activerecord`
+
+But, you can also find all issues that are NOT labeled activerecord:
+
+`is:issue -label:activerecord`
+
+Additionally, this also works for pull requests:
+
+`is:pr -label:activerecord`
+
+Github has tabs for displaying open or closed issues and pull requests but you
+can also see merged pull requests.  Just put the following in the filter:
+
+`is:merged`
+
+[*Read more about searching issues.*](https://help.github.com/articles/searching-issues)
+
+Finally, github now allows you to filter by the Status API's status.
+
+Pull requests with only successful statuses:
+
+`status:success`
+
+[*Read more about searching on the Status API.*](https://github.com/blog/2014-filter-pull-requests-by-status)
 
 ### Syntax Highlighting in Markdown Files
 For example, to syntax highlight Ruby code in your Markdown files write:
@@ -288,31 +343,30 @@ GitHub uses [Linguist](https://github.com/github/linguist) to perform language d
 [*Read more about GitHub Flavored Markdown.*](https://help.github.com/articles/github-flavored-markdown)
 
 ### Emojis
-Emojis can added to on Pull Requests, Issues, commit messages, Markdown files, etc. using `:name_of_emoji:`:
-
-```
-:smile:
-```
-
-Would produce:
-
-:smile:
+Emojis can be added to Pull Requests, Issues, commit messages, repository descriptions, etc. using `:name_of_emoji:`.
 
 The full list of supported Emojis on GitHub can be found at [emoji-cheat-sheet.com](http://www.emoji-cheat-sheet.com/) or [scotch-io/All-Github-Emoji-Icons](https://github.com/scotch-io/All-Github-Emoji-Icons).
+A handy emoji search engine can be found at [emoji.muan.co](http://emoji.muan.co/).
 
-The top 5 used Ejmojis on GitHub are:
+The top 5 used Emojis on GitHub are:
 
-1. :shipit: - `:shipit:`
-2. :sparkles: - `:sparkles:`
-3. :-1: - `:-1:`
-4. :+1: - `:+1:`
-5. :clap: - `:clap:`
+1. `:shipit:`
+2. `:sparkles:`
+3. `:-1:`
+4. `:+1:`
+5. `:clap:`
 
 ### Images/GIFs
 Images and GIFs can be added to comments, READMEs etc.:
 
 ```
 ![Alt Text](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
+```
+
+Raw images from the repo can be used by calling them directly.:
+
+```
+![Alt Text](https://github.com/{user}/{repo}/raw/master/path/to/image.gif)
 ```
 
 ![Peter don't care](http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
@@ -337,8 +391,18 @@ When on a comment thread and you want to quote something someone previously said
 
 [*Read more about quick quoting.*](https://github.com/blog/1399-quick-quotes)
 
+### Pasting Clipboard Image to Comments
+
+_(Works on Chrome browsers only)_
+
+After taking a screenshot and adding it to the clipboard (mac: `cmd-ctrl-shift-4`), you can simply paste (`cmd-v / ctrl-v`) the image into the comment section and it will be auto-uploaded to github.
+
+![Pasting Clipboard Image to Comments](https://cloud.githubusercontent.com/assets/39191/5794265/39c9b65a-9f1b-11e4-9bc7-04e41f59ea5f.png)
+
+[*Read more about issue attachments.*](https://help.github.com/articles/issue-attachments)
+
 ### Quick Licensing
-When creating a repository GitHub gives you the options of adding in a pre-made license:
+When creating a repository, GitHub gives you the option of adding in a pre-made license:
 
 ![License](http://i.imgur.com/Chqj4Fg.png)
 
@@ -433,9 +497,26 @@ GitHub supports rendering tabular data in the form of `.csv` (comma-separated) a
 
 [*Read more about rendering tabular data.*](https://github.com/blog/1601-see-your-csvs)
 
+### Rendering PDF
+
+GitHub supports rendering PDF:
+
+![PDF](https://cloud.githubusercontent.com/assets/1000669/7492902/f8493160-f42e-11e4-8cea-1cb4f02757e7.png)
+
+[*Read more about rendering PDF.*](https://github.com/blog/1974-pdf-viewing)
+
+###Revert a Pull Request
+After a pull request is merged, you may find it does not help anything or it was a bad decision to merge the pull request.
+
+You can revert it by clicking the **Revert** button on the right side of a commit in the pull request page to create a pull request with reverted changes to this specific pull request.
+
+![Revert button](https://camo.githubusercontent.com/0d3350caf2bb1cba53123ffeafc00ca702b1b164/68747470733a2f2f6769746875622d696d616765732e73332e616d617a6f6e6177732e636f6d2f68656c702f70756c6c5f72657175657374732f7265766572742d70756c6c2d726571756573742d6c696e6b2e706e67)
+
+[*Read more about reverting pull requests*](https://github.com/blog/1857-introducing-the-revert-button)
+
 ### Diffs
 #### Rendered Prose Diffs
-Commits and pull requests including rendered documents supported by GitHub (e.g. Markdown) feature *source* and *rendered* views.
+Commits and pull requests, including rendered documents supported by GitHub (e.g. Markdown), feature *source* and *rendered* views.
 
 ![Source / Rendered view](https://github-images.s3.amazonaws.com/help/repository/rendered_prose_diff.png)
 
@@ -508,15 +589,6 @@ $ hub clone tiimgreen/toc
 
 [*Check out some more cool commands Hub has to offer.*](https://github.com/github/hub#commands)
 
-### Decreasing Contributor Friction
-If you want people to use and contribute to your project, you need to start by answering their most basic questions. What does the project do? How do I use it? How am I allowed to use it? How do I contribute? How do I get up and running in development? How do I make sure my new features didn't break old functionality?
-
-[Friction](https://github.com/rafalchmiel/friction) is a command line script that will check your project for common [answers to these questions](https://github.com/rafalchmiel/friction/wiki). This is some example output:
-
-[![Friction output](http://i.imgur.com/4EgpWo4.png)](https://github.com/rafalchmiel/friction)
-
-*Friction supports MRI 2.1.0, MRI 2.0.0, and MRI 1.9.3.*
-
 ### Contributing Guidelines
 Adding a `CONTRIBUTING` file to the root of your repository will add a link to your file when a contributor creates an Issue or opens a Pull Request.
 
@@ -524,14 +596,23 @@ Adding a `CONTRIBUTING` file to the root of your repository will add a link to y
 
 [*Read more about contributing guidelines.*](https://github.com/blog/1184-contributing-guidelines)
 
+### Octicons
+GitHubs icons (Octicons) have now been open sourced.
+
+![Octicons](https://og.github.com/octicons/octicons@1200x630.png)
+
+[*Read more about GitHub's Octicons*](https://octicons.github.com)
+
+
 ### GitHub Resources
 | Title | Link |
 | ----- | ---- |
 | GitHub Explore | https://github.com/explore |
 | GitHub Blog | https://github.com/blog |
 | GitHub Help | https://help.github.com/ |
-| GitHub Training | http://training.github.com/ |
+| GitHub Training | https://training.github.com/ |
 | GitHub Developer | https://developer.github.com/ |
+| Github Education (Free Micro Account and other stuff for students) | https://education.github.com/ |
 
 #### GitHub Talks
 | Title | Link |
@@ -543,6 +624,33 @@ Adding a `CONTRIBUTING` file to the root of your repository will add a link to y
 | More Git and GitHub Secrets | https://www.youtube.com/watch?v=p50xsL-iVgU |
 
 ## Git
+### Remove All Deleted Files from the Working Tree
+When you delete a lot of files using `/bin/rm` you can use the following command to remove them from the working tree and from the index, eliminating the need to remove each one individually:
+
+```bash
+$ git rm $(git ls-files -d)
+```
+
+For example:
+
+```bash
+$ git status
+On branch master
+Changes not staged for commit:
+	deleted:    a
+	deleted:    c
+
+$ git rm $(git ls-files -d)
+rm 'a'
+rm 'c'
+
+$ git status
+On branch master
+Changes to be committed:
+	deleted:    a
+	deleted:    c
+```
+
 ### Previous Branch
 To move to the previous branch in Git:
 
@@ -573,6 +681,18 @@ $ git stripspace < README.md
 ```
 
 [*Read more about the Git `stripspace` command.*](http://git-scm.com/docs/git-stripspace)
+
+### SSH keys
+
+You can get a list of public ssh keys in plain text format by visiting:
+
+```
+https://github.com/{user}.keys
+```
+
+e.g. [https://github.com/tiimgreen.keys](https://github.com/tiimgreen.keys)
+
+[*Read more about accessing public ssh keys.*](https://changelog.com/github-exposes-public-ssh-keys-for-its-users/)
 
 ### Checking out Pull Requests
 
@@ -611,9 +731,25 @@ For Fork-based Pull Request contributions, it's useful to `checkout` a remote br
 $ git checkout pr/42 pr-42
 ```
 
+Or should you work on more repositories, you can globally configure fetching pull requests in the global git config instead.
+
+```bash
+git config --global --add remote.origin.fetch "+refs/pull/*/head:refs/remotes/origin/pr/*"
+```
+
+This way, you can use the following short commands in all your repositories:
+
+```bash
+git fetch origin
+```
+
+```bash
+git checkout pr/42
+```
+
 [*Read more about checking out pull requests locally.*](https://help.github.com/articles/checking-out-pull-requests-locally)
 
-### Empty Commits :trollface:
+### Empty Commits
 Commits can be pushed with no code changes by adding `--allow-empty`:
 
 ```bash
@@ -627,6 +763,8 @@ Some use-cases for this (that make sense), include:
  - Communicating with people using your repository.
  - The first commit of a repo, as the first commit cannot be rebased later: `git commit -m "init repo" --allow-empty`.
 
+![It ain't even that trolololol...](http://i.minus.com/il1jaw.gif)
+
 ### Styled Git Status
 Running:
 
@@ -636,7 +774,7 @@ $ git status
 
 Produces:
 
-![git status](http://i.imgur.com/o3PEHAA.png)
+![git status](http://i.imgur.com/qjPyvXb.png)
 
 By adding `-sb`:
 
@@ -646,7 +784,7 @@ $ git status -sb
 
 This is produced:
 
-![git status -sb](http://i.imgur.com/xNI1bT0.png)
+![git status -sb](http://i.imgur.com/K0OY3nm.png)
 
 [*Read more about the Git `status` command.*](http://git-scm.com/docs/git-status)
 
@@ -659,7 +797,7 @@ $ git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %C
 
 Produces:
 
-![git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative](http://i.imgur.com/EARRQyJ.png)
+![git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative](http://i.imgur.com/58eOtkW.png)
 
 Credit to [Palesz](http://stackoverflow.com/users/88355/palesz)
 
@@ -683,6 +821,33 @@ $ git show :/typo
 
 *Press `q` to quit.*
 
+
+### Git Grep
+
+Git Grep will return a list of lines matching a pattern.
+
+Running:
+```bash
+$ git grep aliases
+```
+will show all the files containing the string *aliases*.
+
+![git grep aliases](http://i.imgur.com/DL2zpQ9.png)
+
+*Press `q` to quit.*
+
+You can also use multiple flags for more advanced search. For example:
+
+ * `-e` The next parameter is the pattern (e.g. regex)
+ * `--and`, `--or` and `--not` Combine multiple patterns.
+
+Use it like this:
+```bash
+ $ git grep -e pattern --and -e anotherpattern
+```
+
+[*Read more about the Git `grep` command.*](http://git-scm.com/docs/git-grep)
+
 ### Merged Branches
 Running:
 
@@ -701,6 +866,15 @@ $ git branch --no-merged
 Will give you a list of branches that have not been merged into your current branch.
 
 [*Read more about the Git `branch` command.*](http://git-scm.com/docs/git-branch)
+
+### Fixup and Autosquash
+If there is something wrong with a previous commit (can be one or more from HEAD), for example `abcde`, run the following command after you've amended the problem:
+```bash
+$ git commit --fixup=abcde
+$ git rebase abcde^ --autosquash -i
+```
+[*Read more about the Git `commit` command.*](http://git-scm.com/docs/git-commit)
+[*Read more about the Git `rebase` command.*](http://git-scm.com/docs/git-rebase)
 
 ### Web Server for Browsing Local Repositories
 Use the Git `instaweb` command to instantly browse your working repository in `gitweb`. This command is a simple script to set up `gitweb` and a web server for browsing the local repository.
@@ -762,6 +936,7 @@ Some useful aliases include:
 | `git st` | `git status -sb` | `git config --global alias.st 'status -sb'` |
 | `git tags` | `git tag -l` | `git config --global alias.tags 'tag -l'` |
 | `git branches` | `git branch -a` | `git config --global alias.branches 'branch -a'` |
+| `git cleanup` | `git branch --merged | grep -v '*' | xargs git branch -d` | `git config --global alias.cleanup "!git branch --merged | grep -v '*' | xargs git branch -d"` |
 | `git remotes` | `git remote -v` | `git config --global alias.remotes 'remote -v'` |
 | `git lg` | `git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --` | `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"` |
 
@@ -813,17 +988,18 @@ $ git config --global color.ui 1
 | Everyday Git | http://git-scm.com/docs/everyday |
 | Git Immersion | http://gitimmersion.com/ |
 | Ry's Git Tutorial | http://rypress.com/tutorials/git/index.html |
-| Git for Designer | http://hoth.entp.com/output/git_for_designers.html |
+| Git for Designers | http://hoth.entp.com/output/git_for_designers.html |
 | Git for Computer Scientists | http://eagain.net/articles/git-for-computer-scientists/ |
 | Git Magic | http://www-cs-students.stanford.edu/~blynn/gitmagic/ |
 | GitHub Training Kit | http://training.github.com/kit |
+| Git Visualization Playground | http://onlywei.github.io/explain-git-with-d3/#freeplay |
 
 #### Git Books
 | Title | Link |
 | ----- | ---- |
 | Pragmatic Version Control Using Git | http://www.pragprog.com/titles/tsgit/pragmatic-version-control-using-git |
 | Pro Git | http://git-scm.com/book |
-| Git Internals Peepcode | http://peepcode.com/products/git-internals-pdf |
+| Git Internals PluralSight | https://github.com/pluralsight/git-internals-pdf |
 | Git in the Trenches | http://cbx33.github.com/gitt/ |
 | Version Control with Git | http://www.amazon.com/Version-Control-Git-collaborative-development/dp/1449316387 |
 | Pragmatic Guide to Git | http://www.pragprog.com/titles/pg_git/pragmatic-guide-to-git |
